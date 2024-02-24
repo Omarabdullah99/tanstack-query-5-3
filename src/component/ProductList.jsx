@@ -5,7 +5,7 @@ const retrieveProducts = async ({queryKey}) => {
   const response = await axios.get(`http://localhost:3000/${queryKey[0]}`);
   return response.data;
 };
-export default function ProductList() {
+export default function ProductList({setProductId}) {
   const {
     data: products,
     error,
@@ -35,6 +35,7 @@ export default function ProductList() {
                 alt={product.title}
               />
               <p className="text-xl my-3">{product.title}</p>
+              <button onClick={()=>setProductId(product.id)}>see Details</button>
             </li>
           ))}
       </ul>
