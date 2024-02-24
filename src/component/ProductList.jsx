@@ -5,6 +5,7 @@ const retrieveProducts = async ({queryKey}) => {
   const response = await axios.get(`http://localhost:3000/${queryKey[0]}`);
   return response.data;
 };
+// eslint-disable-next-line react/prop-types
 export default function ProductList({setProductId}) {
   const {
     data: products,
